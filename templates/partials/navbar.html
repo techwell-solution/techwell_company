@@ -1,0 +1,82 @@
+{% load static %}
+
+<header class="site-header">
+
+    <nav class="navbar">
+
+        <div class="container navbar-container">
+
+            <!-- Logo -->
+            <a href="{% url 'home' %}" class="brand">
+
+                <div class="brand-mark">
+                    TW
+                </div>
+
+                <div class="brand-text">
+                    <span class="brand-name">TechWell</span>
+                    <span class="brand-tagline">Company</span>
+                </div>
+
+            </a>
+
+
+            <!-- Desktop Navigation -->
+            <div class="nav-menu">
+
+                <a href="{% url 'home' %}"
+                   class="nav-link">
+                    Home
+                </a>
+
+                <a href="#about"
+                   class="nav-link">
+                    About
+                </a>
+
+                <a href="#services"
+                   class="nav-link">
+                    Services
+                </a>
+
+                <a href="#solutions"
+                   class="nav-link">
+                    Solutions
+                </a>
+
+                <a href="#projects"
+                   class="nav-link">
+                    Projects
+                </a>
+
+                <a href="#contact"
+                   class="nav-link">
+                    Contact
+                </a>
+
+            </div>
+
+
+            <!-- CTA -->
+            <a href="#contact" class="nav-cta">
+                Start a Project
+            </a>
+
+
+            <!-- Mobile Toggle -->
+            <button class="menu-toggle"
+                    type="button"
+                    aria-label="Open navigation"
+                    aria-expanded="false">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
+
+        </div>
+
+    </nav>
+
+</header>
