@@ -93,7 +93,10 @@
     transition:
         color 0.2s ease;
 }
-
+.nav-link.active {
+    color: var(--primary);
+    font-weight: 800;
+}
 .nav-link:hover {
     color: var(--primary);
 }
