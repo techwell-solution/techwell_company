@@ -62,5 +62,18 @@
     .buttons .btn {
         width: 100%;
     }
+      .pagination {
+        gap: 8px;
+    }
+
+    .pagination-link {
+        min-width: 38px;
+        height: 38px;
+        padding: 0 10px;
+    }
+
+    .pagination-numbers {
+        gap: 5px;
+    }
 
 }

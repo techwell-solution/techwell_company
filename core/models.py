@@ -29,6 +29,12 @@ class Service(models.Model):
         help_text="Example: fa-solid fa-code"
     )
 
+    image = models.ImageField(
+        upload_to="services/",
+        blank=True,
+        null=True
+    )
+
     is_featured = models.BooleanField(
         default=False
     )
@@ -248,3 +254,43 @@ class AboutValue(models.Model):
 
     def __str__(self):
         return self.title
+
+class ContactMessage(models.Model):
+
+    name = models.CharField(
+        max_length=150
+    )
+
+    email = models.EmailField()
+
+    phone = models.CharField(
+        max_length=30,
+        blank=True
+    )
+
+    subject = models.CharField(
+        max_length=200
+    )
+
+    service = models.CharField(
+        max_length=150,
+        blank=True
+    )
+
+    message = models.TextField()
+
+    is_read = models.BooleanField(
+        default=False
+    )
+
+    created_at = models.DateTimeField(
+        auto_now_add=True
+    )
+
+    class Meta:
+        ordering = ["-created_at"]
+        verbose_name = "Contact Message"
+        verbose_name_plural = "Contact Messages"
+
+    def __str__(self):
+        return f"{self.name} - {self.subject}"
