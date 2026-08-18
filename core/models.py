@@ -272,9 +272,12 @@ class ContactMessage(models.Model):
         max_length=200
     )
 
-    service = models.CharField(
-        max_length=150,
-        blank=True
+    service = models.ForeignKey(
+        "Service",
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="contact_messages"
     )
 
     message = models.TextField()
@@ -294,3 +297,4 @@ class ContactMessage(models.Model):
 
     def __str__(self):
         return f"{self.name} - {self.subject}"
+

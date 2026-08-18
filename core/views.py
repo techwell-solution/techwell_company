@@ -1,6 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Service, Project, Testimonial, AboutPage, AboutValue
 from django.core.paginator import Paginator
+from django.contrib import messages
+from .forms import ContactMessageForm
 
 # Create your views here.
 
@@ -76,3 +78,26 @@ def service_detail(request, slug):
     context = {"service": service,}
 
     return render(request,  "core/service_detail.html", context)
+
+def contact(request):
+
+    if request.method == "POST":
+        form = ContactMessageForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+
+            messages.success(
+                request,
+                "Thank you for contacting TechWell. "
+                "We will get back to you soon."
+            )
+
+            return redirect("contact")
+
+    else:
+        form = ContactMessageForm()
+
+    context = {"form": form,}
+
+    return render(request,  "core/contact.html", context)
