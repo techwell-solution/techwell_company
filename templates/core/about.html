@@ -3,10 +3,503 @@
 {% block title %}About Us - TechWell Company{% endblock %}
 
 {% block content %}
-    <section class="about-section">
-        <div class="container">
-            <h1>About Us</h1>
-            <p>Welcome to TechWell Company!</p>
+  <!-- =========================
+        ABOUT HERO
+    ========================= -->
+    <section class="about-hero section">
+
+        <div class="container about-hero-grid">
+
+            <div class="about-hero-content">
+
+                <span class="section-tag">
+                    ABOUT TECHWELL
+                </span>
+
+                <h1>
+                    Building Digital Solutions
+                    <span>That Move Businesses Forward</span>
+                </h1>
+
+                <p>
+                    We help businesses turn ideas into reliable,
+                    scalable and impactful digital solutions
+                    through technology, innovation and thoughtful design.
+                </p>
+
+                <div class="buttons">
+
+                    <a href="" class="btn btn-primary">
+                        Start a Project
+                    </a>
+
+                    <a href="" class="btn btn-outline">
+                        Explore Services
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="about-hero-image">
+
+                {% if about_page.image %}
+
+                    <img
+                        src="{{ about_page.image.url }}"
+                        alt="TechWell technology team"
+                    >
+
+                {% else %}
+
+                    <div class="about-image-placeholder">
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+
+                {% endif %}
+
+            </div>
+
         </div>
+
+    </section>
+
+
+    <!-- =========================
+        WHO WE ARE
+    ========================= -->
+    <section class="about-story section">
+
+        <div class="container about-story-grid">
+
+            <div class="about-story-image">
+
+                {% if about_page.image %}
+
+                    <img
+                        src="{{ about_page.image.url }}"
+                        alt="About TechWell"
+                    >
+
+                {% else %}
+
+                    <div class="about-image-placeholder">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+
+                {% endif %}
+
+            </div>
+
+
+            <div class="about-story-content">
+
+                <span class="section-tag">
+                    WHO WE ARE
+                </span>
+
+                <h2>
+                    Technology Built Around
+                    <span>Your Goals</span>
+                </h2>
+
+                <p>
+                    {{ about_page.description }}
+                </p>
+
+                <p>
+                    From software and web development to cloud solutions
+                    and IT services, we focus on creating technology that
+                    solves real problems and delivers measurable value.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+        COMPANY STATS
+    ========================= -->
+    <section class="about-stats section">
+
+        <div class="container">
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        <i class="fa-solid fa-calendar-check"></i>
+                    </div>
+
+                    <strong>
+                        {{ about_page.years_experience }}+
+                    </strong>
+
+                    <span>
+                        Years Experience
+                    </span>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        <i class="fa-solid fa-diagram-project"></i>
+                    </div>
+
+                    <strong>
+                        {{ about_page.projects_completed }}+
+                    </strong>
+
+                    <span>
+                        Projects Completed
+                    </span>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+
+                    <strong>
+                        {{ about_page.clients_served }}+
+                    </strong>
+
+                    <span>
+                        Clients Served
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+        MISSION & VISION
+    ========================= -->
+    <section class="mission-vision section">
+
+        <div class="container">
+
+            <div class="section-heading centered">
+
+                <span class="section-tag">
+                    OUR PURPOSE
+                </span>
+
+                <h2>
+                    What Drives <span>TechWell</span>
+                </h2>
+
+            </div>
+
+
+            <div class="mission-vision-grid">
+
+                <article class="purpose-card">
+
+                    <div class="purpose-icon">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+
+                    <h3>
+                        Our Mission
+                    </h3>
+
+                    <p>
+                        {{ about_page.mission }}
+                    </p>
+
+                </article>
+
+
+                <article class="purpose-card">
+
+                    <div class="purpose-icon">
+                        <i class="fa-solid fa-eye"></i>
+                    </div>
+
+                    <h3>
+                        Our Vision
+                    </h3>
+
+                    <p>
+                        {{ about_page.vision }}
+                    </p>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+        OUR VALUES
+    ========================= -->
+    <section class="about-values section">
+
+        <div class="container">
+
+            <div class="section-heading centered">
+
+                <span class="section-tag">
+                    OUR VALUES
+                </span>
+
+                <h2>
+                    Principles That Guide
+                    <span>Our Work</span>
+                </h2>
+
+                <p>
+                    Everything we build is guided by principles that
+                    keep our solutions useful, reliable and focused
+                    on our clients' success.
+                </p>
+
+            </div>
+
+
+            <div class="values-grid">
+
+                {% for value in values %}
+
+                    <article class="value-card">
+
+                        <div class="value-icon">
+
+                            {% if value.icon %}
+
+                                <i class="{{ value.icon }}"></i>
+
+                            {% else %}
+
+                                <i class="fa-solid fa-check"></i>
+
+                            {% endif %}
+
+                        </div>
+
+                        <h3>
+                            {{ value.title }}
+                        </h3>
+
+                        <p>
+                            {{ value.description }}
+                        </p>
+
+                    </article>
+
+                {% empty %}
+
+                    <p class="empty-message">
+                        Our values will be available soon.
+                    </p>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+        HOW WE WORK
+    ========================= -->
+    <section class="about-process section">
+
+        <div class="container">
+
+            <div class="section-heading centered">
+
+                <span class="section-tag">
+                    OUR APPROACH
+                </span>
+
+                <h2>
+                    From Idea to
+                    <span>Impact</span>
+                </h2>
+
+                <p>
+                    We follow a clear and collaborative process
+                    to turn ideas into dependable digital solutions.
+                </p>
+
+            </div>
+
+
+            <div class="process-grid">
+
+                <article class="process-card">
+
+                    <span class="process-number">
+                        01
+                    </span>
+
+                    <div class="process-icon">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+
+                    <h3>
+                        Discover
+                    </h3>
+
+                    <p>
+                        We understand your goals, challenges,
+                        users and business requirements.
+                    </p>
+
+                </article>
+
+
+                <article class="process-card">
+
+                    <span class="process-number">
+                        02
+                    </span>
+
+                    <div class="process-icon">
+                        <i class="fa-solid fa-compass-drafting"></i>
+                    </div>
+
+                    <h3>
+                        Plan
+                    </h3>
+
+                    <p>
+                        We develop a clear technical strategy
+                        and solution roadmap.
+                    </p>
+
+                </article>
+
+
+                <article class="process-card">
+
+                    <span class="process-number">
+                        03
+                    </span>
+
+                    <div class="process-icon">
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+
+                    <h3>
+                        Build
+                    </h3>
+
+                    <p>
+                        We develop, test and refine your solution
+                        using modern technologies.
+                    </p>
+
+                </article>
+
+
+                <article class="process-card">
+
+                    <span class="process-number">
+                        04
+                    </span>
+
+                    <div class="process-icon">
+                        <i class="fa-solid fa-rocket"></i>
+                    </div>
+
+                    <h3>
+                        Launch
+                    </h3>
+
+                    <p>
+                        We deploy your solution and make sure
+                        everything is ready for real-world use.
+                    </p>
+
+                </article>
+
+
+                <article class="process-card">
+
+                    <span class="process-number">
+                        05
+                    </span>
+
+                    <div class="process-icon">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+
+                    <h3>
+                        Support
+                    </h3>
+
+                    <p>
+                        We provide ongoing improvements,
+                        maintenance and technical support.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+    
+
+
+    <!-- =========================
+        CTA
+    ========================= -->
+    <section class="about-cta section">
+
+        <div class="container">
+
+            <div class="cta-content">
+
+                <span class="section-tag">
+                    LET'S BUILD TOGETHER
+                </span>
+
+                <h2>
+                    Have an Idea?
+                    <span>Let's Make It Real.</span>
+                </h2>
+
+                <p>
+                    Whether you are starting something new or improving
+                    an existing system, TechWell can help turn your
+                    vision into a practical digital solution.
+                </p>
+                <div class="buttons">
+                    <a href="" class="btn btn-primary">
+                        Start a Project
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+
+            </div>
+
+        </div>
+
     </section>
 {% endblock %}

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Service, Project, Testimonial
+from .models import Service, Project, Testimonial, AboutPage, AboutValue
 
 # Register your models here.
 @admin.register(Service)
@@ -92,5 +92,37 @@ class TestimonialAdmin(admin.ModelAdmin):
     list_editable = (
         "is_featured",
         "is_active",
+        "order",
+    )
+
+@admin.register(AboutPage)
+class AboutPageAdmin(admin.ModelAdmin):
+    list_display = (
+        "title",
+        "years_experience",
+        "projects_completed",
+        "clients_served",
+        "is_active",
+        "updated_at",
+    )
+
+    list_filter = (
+        "is_active",
+    )
+
+
+@admin.register(AboutValue)
+class AboutValueAdmin(admin.ModelAdmin):
+    list_display = (
+        "title",
+        "order",
+        "is_active",
+    )
+
+    list_filter = (
+        "is_active",
+    )
+
+    ordering = (
         "order",
     )

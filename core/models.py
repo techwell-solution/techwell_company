@@ -169,3 +169,82 @@ class Testimonial(models.Model):
 
     def __str__(self):
         return self.name
+class AboutPage(models.Model):
+    title = models.CharField(
+        max_length=200,
+        default="Building Digital Solutions That Move Businesses Forward"
+    )
+
+    subtitle = models.CharField(
+        max_length=300,
+        blank=True
+    )
+
+    description = models.TextField()
+
+    mission = models.TextField()
+
+    vision = models.TextField()
+
+    image = models.ImageField(
+        upload_to="about/",
+        blank=True,
+        null=True
+    )
+
+    years_experience = models.PositiveIntegerField(
+        default=0
+    )
+
+    projects_completed = models.PositiveIntegerField(
+        default=0
+    )
+
+    clients_served = models.PositiveIntegerField(
+        default=0
+    )
+
+    is_active = models.BooleanField(
+        default=True
+    )
+
+    updated_at = models.DateTimeField(
+        auto_now=True
+    )
+
+    class Meta:
+        verbose_name = "About Page"
+        verbose_name_plural = "About Page"
+
+    def __str__(self):
+        return self.title
+
+
+class AboutValue(models.Model):
+    title = models.CharField(
+        max_length=100
+    )
+
+    description = models.TextField()
+
+    icon = models.CharField(
+        max_length=100,
+        blank=True,
+        help_text="Example: fa-solid fa-lightbulb"
+    )
+
+    order = models.PositiveIntegerField(
+        default=0
+    )
+
+    is_active = models.BooleanField(
+        default=True
+    )
+
+    class Meta:
+        ordering = ["order"]
+        verbose_name = "About Value"
+        verbose_name_plural = "About Values"
+
+    def __str__(self):
+        return self.title

@@ -53,5 +53,14 @@
         align-items: flex-start;
         gap: 15px;
     }
+    .buttons {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+    }
+
+    .buttons .btn {
+        width: 100%;
+    }
 
 }
