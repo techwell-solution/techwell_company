@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Service, Project, Testimonial, AboutPage, AboutValue
+from .models import Service, Testimonial, AboutPage, AboutValue
+from projects.models import Project
 from django.core.paginator import Paginator
 from django.contrib import messages
 from .forms import ContactMessageForm
@@ -14,7 +15,7 @@ def home(request):
     ).order_by("order", "-created_at")[:3]
     featured_projects = Project.objects.filter(
         is_active=True,
-        is_featured=True
+        featured=True
     ).order_by("order", "-created_at")[:6]
     testimonials = Testimonial.objects.filter(
         is_active=True,

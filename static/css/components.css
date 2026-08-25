@@ -305,12 +305,13 @@
 .footer-bottom a:hover {
     color: var(--white);
 }
-.buttons-actions {
+.buttons {
     display: flex;
     align-items: center;
     gap: 1rem;
     margin-top: 2rem;
     flex-wrap: wrap;
+    
 }
 
 /* Base Button */
@@ -318,7 +319,6 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-
     min-height: 52px;
     padding: 0.85rem 1.5rem;
 

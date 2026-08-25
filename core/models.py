@@ -70,68 +70,6 @@ class Service(models.Model):
     def __str__(self):
         return self.title
 
-class Project(models.Model):
-    title = models.CharField(max_length=200)
-
-    slug = models.SlugField(
-        max_length=220,
-        unique=True,
-        blank=True
-    )
-
-    category = models.CharField(
-        max_length=100,
-        blank=True,
-        help_text="Example: Web Development, Software, Cloud"
-    )
-
-    description = models.TextField(
-        blank=True
-    )
-
-    image = models.ImageField(
-        upload_to="projects/",
-        blank=True,
-        null=True
-    )
-
-    url = models.URLField(
-        blank=True,
-        null=True
-    )
-
-    is_featured = models.BooleanField(
-        default=False
-    )
-
-    is_active = models.BooleanField(
-        default=True
-    )
-
-    order = models.PositiveIntegerField(
-        default=0
-    )
-
-    created_at = models.DateTimeField(
-        auto_now_add=True
-    )
-
-    updated_at = models.DateTimeField(
-        auto_now=True
-    )
-
-    class Meta:
-        ordering = ["order", "-created_at"]
-
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.title)
-
-        super().save(*args, **kwargs)
-
-    def __str__(self):
-        return self.title
-
 class Testimonial(models.Model):
     name = models.CharField(max_length=100)
 
