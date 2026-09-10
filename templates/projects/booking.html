@@ -1,0 +1,357 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Book a Service | TechWell{% endblock %}
+
+{% block content %}
+
+<section class="booking-hero">
+
+    <div class="booking-container">
+
+        <!-- Intro -->
+        <div class="booking-intro">
+
+            <span class="booking-eyebrow">
+                <i class="fa-solid fa-rocket"></i>
+                START YOUR PROJECT
+            </span>
+
+            <h1>
+                Let's Build Something
+                <span>Great Together.</span>
+            </h1>
+
+            <p>
+                Tell us about your project and our team will help turn
+                your idea into a reliable, scalable digital solution.
+            </p>
+
+            <div class="booking-features">
+
+                <div class="booking-feature">
+                    <span class="feature-icon">
+                        <i class="fa-solid fa-code"></i>
+                    </span>
+
+                    <div>
+                        <h3>Modern Technology</h3>
+                        <p>
+                            Solutions built with modern and reliable
+                            technologies.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="booking-feature">
+                    <span class="feature-icon">
+                        <i class="fa-solid fa-layer-group"></i>
+                    </span>
+
+                    <div>
+                        <h3>Scalable Solutions</h3>
+                        <p>
+                            Software designed to grow with your business.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="booking-feature">
+                    <span class="feature-icon">
+                        <i class="fa-solid fa-headset"></i>
+                    </span>
+
+                    <div>
+                        <h3>Dedicated Support</h3>
+                        <p>
+                            We're here to support your project beyond launch.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Booking Form -->
+        <div class="booking-card">
+
+            <div class="booking-card-header">
+
+                <span class="form-step">
+                    PROJECT REQUEST
+                </span>
+
+                <h2>
+                    Tell Us About Your Project
+                </h2>
+
+                <p>
+                    Fill in the details below and we'll get back to you.
+                </p>
+
+            </div>
+
+
+            <form method="POST" class="booking-form">
+
+                {% csrf_token %}
+
+
+                {% if form.non_field_errors %}
+                    <div class="form-alert">
+                        {{ form.non_field_errors }}
+                    </div>
+                {% endif %}
+
+
+                <!-- Client Information -->
+
+                <div class="form-section">
+
+                    <div class="form-section-title">
+                        <span>
+                            <i class="fa-solid fa-user"></i>
+                        </span>
+
+                        <div>
+                            <h3>Your Information</h3>
+                            <p>How can we reach you?</p>
+                        </div>
+                    </div>
+
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+
+                            <label for="{{ form.name.id_for_label }}">
+                                Full Name
+                                <span>*</span>
+                            </label>
+
+                            {{ form.name }}
+
+                            {% if form.name.errors %}
+                                <div class="field-error">
+                                    {{ form.name.errors }}
+                                </div>
+                            {% endif %}
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="{{ form.email.id_for_label }}">
+                                Email Address
+                                <span>*</span>
+                            </label>
+
+                            {{ form.email }}
+
+                            {% if form.email.errors %}
+                                <div class="field-error">
+                                    {{ form.email.errors }}
+                                </div>
+                            {% endif %}
+
+                        </div>
+
+
+                        <div class="form-group form-full">
+
+                            <label for="{{ form.phone.id_for_label }}">
+                                Phone Number
+                                <span>*</span>
+                            </label>
+
+                            {{ form.phone }}
+
+                            {% if form.phone.errors %}
+                                <div class="field-error">
+                                    {{ form.phone.errors }}
+                                </div>
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Project Information -->
+
+                <div class="form-section">
+
+                    <div class="form-section-title">
+
+                        <span>
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </span>
+
+                        <div>
+                            <h3>Project Information</h3>
+                            <p>Tell us what you want to build.</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-grid">
+
+                        <div class="form-group form-full">
+
+                            <label for="{{ form.service.id_for_label }}">
+                                Service
+                                <span>*</span>
+                            </label>
+
+                            {{ form.service }}
+
+                            {% if form.service.errors %}
+                                <div class="field-error">
+                                    {{ form.service.errors }}
+                                </div>
+                            {% endif %}
+
+                        </div>
+
+
+                        <div class="form-group form-full">
+
+                            <label for="{{ form.description.id_for_label }}">
+                                Project Description
+                                <span>*</span>
+                            </label>
+
+                            {{ form.description }}
+
+                            <small>
+                                Describe your idea, goals, features,
+                                target users, or any requirements.
+                            </small>
+
+                            {% if form.description.errors %}
+                                <div class="field-error">
+                                    {{ form.description.errors }}
+                                </div>
+                            {% endif %}
+
+                        </div>
+
+
+                        <div class="form-group form-full">
+
+                            <label for="{{ form.website_url.id_for_label }}">
+                                Existing Website
+                                <span class="optional">(Optional)</span>
+                            </label>
+
+                            {{ form.website_url }}
+
+                            <small>
+                                If you already have a website, provide
+                                its URL.
+                            </small>
+
+                            {% if form.website_url.errors %}
+                                <div class="field-error">
+                                    {{ form.website_url.errors }}
+                                </div>
+                            {% endif %}
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="{{ form.budget.id_for_label }}">
+                                Estimated Budget
+                            </label>
+
+                            {{ form.budget }}
+
+                            {% if form.budget.errors %}
+                                <div class="field-error">
+                                    {{ form.budget.errors }}
+                                </div>
+                            {% endif %}
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="{{ form.preferred_date.id_for_label }}">
+                                Preferred Start Date
+                            </label>
+
+                            {{ form.preferred_date }}
+
+                            {% if form.preferred_date.errors %}
+                                <div class="field-error">
+                                    {{ form.preferred_date.errors }}
+                                </div>
+                            {% endif %}
+
+                        </div>
+
+
+                        <div class="form-group form-full">
+
+                            <label for="{{ form.priority.id_for_label }}">
+                                Project Priority
+                            </label>
+
+                            {{ form.priority }}
+
+                            {% if form.priority.errors %}
+                                <div class="field-error">
+                                    {{ form.priority.errors }}
+                                </div>
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Submit -->
+
+                <div class="booking-submit">
+
+                    <button
+                        type="submit"
+                        class="booking-submit-btn"
+                    >
+
+                        <span>
+                            Submit Project Request
+                        </span>
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </button>
+
+                    <p>
+                        <i class="fa-solid fa-shield-halved"></i>
+
+                        Your information is kept confidential.
+                    </p>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

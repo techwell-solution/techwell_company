@@ -1,0 +1,375 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Services | TechWell Solutions{% endblock %}
+
+{% block content %}
+
+<!-- =========================
+     SERVICES HERO
+========================= -->
+<section class="services-hero">
+
+    <div class="container">
+
+        <div class="services-hero-content">
+
+            <span class="section-tag">
+                OUR SERVICES
+            </span>
+
+            <h1>
+                Professional Services
+                <span>Built Around You</span>
+            </h1>
+
+            <p>
+                From digital solutions to everyday business services,
+                TechWell Solutions provides reliable, affordable and
+                professional services designed to help individuals
+                and businesses work smarter.
+            </p>
+
+            <div class="sln-btn">
+
+                <a href="{% url 'booking' %}"
+                   class="btn btn-primary">
+                    Request a Service
+                </a>
+
+                <a href="{% url 'solutions' %}"
+                   class="btn btn-secondary">
+                    Explore Solutions
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SERVICES
+========================= -->
+<section class="services-list section" id="services">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span class="section-tag">
+                WHAT WE OFFER
+            </span>
+
+            <h2>
+                Solutions That Make
+                <span>Work Easier</span>
+            </h2>
+
+            <p>
+                Choose from our range of professional digital,
+                business and technology services.
+            </p>
+
+        </div>
+
+
+        <div class="services-grid">
+
+            {% for service in services %}
+
+                <article class="service-card">
+
+                    {% if service.image %}
+
+                        <div class="service-card-image">
+
+                            <img src="{{ service.image.url }}"
+                                 alt="{{ service.title }}">
+
+                        </div>
+
+                    {% else %}
+
+                        <div class="service-icon">
+
+                            <i class="{{ service.icon }}"></i>
+
+                        </div>
+
+                    {% endif %}
+
+
+                    <div class="service-card-content">
+
+                        <h3>
+                            {{ service.title }}
+                        </h3>
+
+                        <p>
+                            {{ service.short_description }}
+                        </p>
+
+                        <a href="{% url 'service_detail' service.slug %}"
+                           class="service-link">
+
+                            View Service
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </a>
+
+                    </div>
+
+                </article>
+
+            {% empty %}
+
+                <div class="empty-services">
+
+                    <i class="fa-solid fa-layer-group"></i>
+
+                    <h3>
+                        Services Coming Soon
+                    </h3>
+
+                    <p>
+                        We're currently updating our service catalogue.
+                        Please check back soon.
+                    </p>
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+
+        <!-- =========================
+             PAGINATION
+        ========================== -->
+
+        {% if services.has_other_pages %}
+
+            <nav class="pagination"
+                 aria-label="Services pagination">
+
+                {% if services.has_previous %}
+
+                    <a href="?page={{ services.previous_page_number }}#services"
+                       class="pagination-link">
+
+                        <i class="fa-solid fa-chevron-left"></i>
+
+                        Previous
+
+                    </a>
+
+                {% endif %}
+
+
+                <div class="pagination-numbers">
+
+                    {% for num in services.paginator.page_range %}
+
+                        {% if services.number == num %}
+
+                            <span class="pagination-link active">
+                                {{ num }}
+                            </span>
+
+                        {% else %}
+
+                            <a href="?page={{ num }}#services"
+                               class="pagination-link">
+
+                                {{ num }}
+
+                            </a>
+
+                        {% endif %}
+
+                    {% endfor %}
+
+                </div>
+
+
+                {% if services.has_next %}
+
+                    <a href="?page={{ services.next_page_number }}#services"
+                       class="pagination-link">
+
+                        Next
+
+                        <i class="fa-solid fa-chevron-right"></i>
+
+                    </a>
+
+                {% endif %}
+
+            </nav>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     WHY TECHWELL
+========================= -->
+<section class="why-techwell section">
+
+    <div class="container">
+
+        <div class="why-techwell-grid">
+
+            <div class="why-techwell-content">
+
+                <span class="section-tag">
+                    WHY TECHWELL
+                </span>
+
+                <h2>
+                    Your Reliable
+                    <span>Digital Partner</span>
+                </h2>
+
+                <p>
+                    We combine technology, experience and personalized
+                    support to deliver services that solve real problems
+                    and create meaningful results.
+                </p>
+
+                <a href="{% url 'contact' %}"
+                   class="button">
+                    Talk to Us
+                </a>
+
+            </div>
+
+
+            <div class="why-techwell-features">
+
+                <div class="why-feature">
+
+                    <div class="why-feature-icon">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+
+                    <div>
+                        <h3>Fast & Reliable</h3>
+
+                        <p>
+                            We value your time and deliver services
+                            efficiently without compromising quality.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="why-feature">
+
+                    <div class="why-feature-icon">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+
+                    <div>
+                        <h3>Professional</h3>
+
+                        <p>
+                            Every service is handled with attention
+                            to detail and professionalism.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="why-feature">
+
+                    <div class="why-feature-icon">
+                        <i class="fa-solid fa-wallet"></i>
+                    </div>
+
+                    <div>
+                        <h3>Affordable</h3>
+
+                        <p>
+                            We provide practical solutions at
+                            competitive and transparent prices.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="why-feature">
+
+                    <div class="why-feature-icon">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+
+                    <div>
+                        <h3>Customer Support</h3>
+
+                        <p>
+                            We're here to help before, during and
+                            after your service.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CTA
+========================= -->
+<section class="services-cta section">
+
+    <div class="container">
+
+        <div class="services-cta-content">
+
+            <span class="section-tag">
+                GET STARTED
+            </span>
+
+            <h2>
+                Have a Service
+                <span>in Mind?</span>
+            </h2>
+
+            <p>
+                Tell us what you need and our team will help you
+                find the right solution.
+            </p>
+
+         
+            <a href="{% url 'booking' %}"
+                class="button">
+                    Start a Service Request
+                    <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

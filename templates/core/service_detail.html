@@ -1,0 +1,183 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    {{ service.title }} | TechWell Solutions
+{% endblock %}
+
+
+{% block extra_css %}
+
+<link rel="stylesheet"
+      href="{% static 'css/pages/service-detail.css' %}">
+
+{% endblock %}
+
+
+{% block content %}
+
+
+<!-- =========================================
+     BREADCRUMB
+========================================= -->
+
+<section class="breadcrumb-section">
+
+    <div class="container">
+
+        <div class="breadcrumb-content">
+
+            <a href="{% url 'home' %}">
+                Home
+            </a>
+
+            <i class="fa-solid fa-chevron-right"></i>
+
+            <a href="{% url 'services' %}">
+                Services
+            </a>
+
+            <i class="fa-solid fa-chevron-right"></i>
+
+            <span>
+                {{ service.title }}
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     SERVICE HERO
+========================================= -->
+
+<section class="service-detail-hero">
+
+    <div class="container">
+
+        <div class="service-detail-hero-content">
+
+            <div class="service-detail-icon">
+
+                {% if service.icon %}
+
+                    <i class="{{ service.icon }}"></i>
+
+                {% else %}
+
+                    <i class="fa-solid fa-code"></i>
+
+                {% endif %}
+
+            </div>
+
+
+            <span class="section-tag">
+                OUR SERVICE
+            </span>
+
+
+            <h1>
+                {{ service.title }}
+            </h1>
+
+
+            <p>
+                {{ service.short_description }}
+            </p>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     SERVICE DESCRIPTION
+========================================= -->
+
+<section class="service-content section">
+
+    <div class="container">
+
+        <div class="service-content-wrapper">
+
+            <div class="service-content-main">
+
+                <span class="section-tag">
+                    ABOUT THIS SERVICE
+                </span>
+
+                <h2>
+                    {{ service.title }}
+                </h2>
+
+
+                <div class="service-description">
+
+                    {{ service.description|linebreaks }}
+
+                </div>
+
+            </div>
+
+
+            <!-- SERVICE SIDEBAR -->
+
+            <aside class="service-sidebar">
+
+                <div class="service-sidebar-icon">
+
+                    {% if service.icon %}
+
+                        <i class="{{ service.icon }}"></i>
+
+                    {% else %}
+
+                        <i class="fa-solid fa-code"></i>
+
+                    {% endif %}
+
+                </div>
+
+
+                <h3>
+                    Need {{ service.title }}?
+                </h3>
+
+
+                <p>
+                    Let's discuss your requirements and
+                    find the right solution for your business.
+                </p>
+
+                <div class="buttons">
+                    <a href="{% url 'booking' %}"
+                    class="btn btn-primary">
+
+                        Get Started
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </a>
+
+                </div>
+                
+
+            </aside>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+{% endblock %}

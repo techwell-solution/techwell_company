@@ -1,0 +1,202 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ project.title }} | TechWell{% endblock %}
+
+{% block content %}
+<section class="project-detail-hero">
+
+    <div class="container">
+
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+
+            <a href="{% url 'home' %}">
+                Home
+            </a>
+
+            <span class="breadcrumb-separator">
+                /
+            </span>
+
+            <a href="{% url 'projects' %}">
+                Projects
+            </a>
+
+            <span class="breadcrumb-separator">
+                /
+            </span>
+
+            <span class="breadcrumb-current">
+                {{ project.title }}
+            </span>
+
+        </nav>
+
+
+        <!-- Project heading -->
+
+        <span class="section-label">
+            {{ project.get_category_display }}
+        </span>
+
+        <h1>
+            {{ project.title }}
+        </h1>
+
+        <p>
+            {{ project.short_description }}
+        </p>
+
+    </div>
+
+</section>
+<section class="project-detail-hero">
+
+    <div class="container">
+
+        <span class="section-label">
+            {{ project.get_category_display }}
+        </span>
+
+        <h1>
+            {{ project.title }}
+        </h1>
+
+        <p>
+            {{ project.short_description }}
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="project-detail section">
+
+    <div class="container">
+
+        <div class="project-detail-grid">
+
+            <div class="project-detail-image">
+
+                {% if project.image %}
+
+                <img
+                    src="{{ project.image.url }}"
+                    alt="{{ project.title }}"
+                >
+
+                {% else %}
+
+                <div class="project-image-placeholder">
+                    <i class="fa-solid fa-code"></i>
+                </div>
+
+                {% endif %}
+
+            </div>
+
+
+            <div class="project-detail-content">
+
+                <span class="section-label">
+                    PROJECT OVERVIEW
+                </span>
+
+                <h2>
+                    {{ project.title }}
+                </h2>
+
+                <div class="project-description">
+                    {{ project.description|linebreaks }}
+                </div>
+
+
+                {% if project.client %}
+
+                <div class="project-detail-meta">
+
+                    <strong>Client</strong>
+
+                    <span>
+                        {{ project.client }}
+                    </span>
+
+                </div>
+
+                {% endif %}
+
+
+                {% if project.technologies %}
+
+                <div class="project-detail-meta">
+
+                    <strong>Technologies</strong>
+
+                    <span>
+                        {{ project.technologies }}
+                    </span>
+
+                </div>
+
+                {% endif %}
+
+
+                {% if project.project_url %}
+
+                <a
+                    href="{{ project.project_url }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-primary"
+                >
+                    Visit Project
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="projects-cta section">
+
+    <div class="container">
+
+        <div class="projects-cta-content">
+
+            <span class="section-label">
+                HAVE A PROJECT?
+            </span>
+
+            <h2>
+                Let's Work Together
+            </h2>
+
+            <p>
+                Have an idea you'd like to bring to life?
+                Let's discuss how TechWell can help.
+            </p>
+
+            <a
+                href="{% url 'contact' %}"
+                class="btn btn-primary"
+            >
+                Start a Project
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

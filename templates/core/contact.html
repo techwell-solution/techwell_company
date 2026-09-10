@@ -1,0 +1,322 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Contact Us | TechWell{% endblock %}
+
+{% block content %}
+
+<!-- Contact Hero --
+<section class="contact-hero section">
+
+    <div class="container">
+
+        <div class="contact-hero-grid">
+
+            <div class="contact-hero-content">
+
+                <span class="section-tag">
+                    CONTACT US
+                </span>
+
+                <h1>
+                    Let's Build Something
+                    <span>Great Together.</span>
+                </h1>
+
+                <p>
+                    Have a project, an idea, or a technology challenge?
+                    We'd love to hear from you. Tell us what you have in
+                    mind and let's explore how TechWell can help.
+                </p>
+
+            </div>
+
+
+            <div class="contact-hero-image">
+
+                <img src="{% static 'images/contact-hero.jpeg' %}" alt="TechWell technology and software development">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>-->
+
+
+<!-- Contact Section -->
+<section class="contact-section section">
+
+    <div class="container">
+
+        <div class="contact-grid">
+
+            <!-- Contact Information -->
+            <div class="contact-info">
+
+                <span class="section-tag">
+                    GET IN TOUCH
+                </span>
+
+                <h2>
+                    Let's Start a Conversation
+                </h2>
+
+                <p>
+                    Whether you're looking to build a new digital product,
+                    improve an existing system, or explore technology
+                    solutions for your business, our team is ready to help.
+                </p>
+
+
+                <div class="contact-details">
+
+                    <div class="contact-detail">
+
+                        <div class="contact-icon">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+
+                        <div>
+                            <span>Email</span>
+
+                            <a href="mailto:catelilungo@gmail.com">
+                                catelilungo@gmail.com
+                            </a>
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-detail">
+
+                        <div class="contact-icon">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+
+                        <div>
+                            <span>Phone</span>
+
+                            <a href="tel:+2547792501015">
+                                +254 792 501 015
+                            </a>
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-detail">
+
+                        <div class="contact-icon">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+
+                        <div>
+                            <span>Location</span>
+
+                            <p>
+                                Nairobi, Kenya
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-detail">
+
+                        <div class="contact-icon">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+
+                        <div>
+                            <span>Business Hours</span>
+
+                            <p>
+                                Monday – Friday
+                                <br>
+                                8:00 AM – 5:00 PM
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Contact Form -->
+            <div class="contact-form-wrapper">
+
+                <div class="contact-form-header">
+
+                    <span class="section-tag">
+                        SEND A MESSAGE
+                    </span>
+
+                    <h2>
+                        Tell Us About Your Project
+                    </h2>
+
+                    <p>
+                        Fill out the form below and we'll get back to you.
+                    </p>
+
+                </div>
+
+
+                {% if messages %}
+
+                    <div class="form-messages">
+
+                        {% for message in messages %}
+
+                            <div class="alert alert-success">
+                                {{ message }}
+                            </div>
+
+                        {% endfor %}
+
+                    </div>
+
+                {% endif %}
+
+
+                <form
+                    method="POST"
+                    class="contact-form"
+                >
+
+                    {% csrf_token %}
+
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label for="{{ form.name.id_for_label }}">
+                                Name
+                            </label>
+
+                            {{ form.name }}
+
+                            {% if form.name.errors %}
+                                <div class="form-error">
+                                    {{ form.name.errors }}
+                                </div>
+                            {% endif %}
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="{{ form.email.id_for_label }}">
+                                Email
+                            </label>
+
+                            {{ form.email }}
+
+                            {% if form.email.errors %}
+                                <div class="form-error">
+                                    {{ form.email.errors }}
+                                </div>
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label for="{{ form.phone.id_for_label }}">
+                                Phone
+                            </label>
+
+                            {{ form.phone }}
+
+                            {% if form.phone.errors %}
+                                <div class="form-error">
+                                    {{ form.phone.errors }}
+                                </div>
+                            {% endif %}
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="{{ form.service.id_for_label }}">
+                                Service
+                            </label>
+
+                            {{ form.service }}
+
+                            {% if form.service.errors %}
+                                <div class="form-error">
+                                    {{ form.service.errors }}
+                                </div>
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="{{ form.subject.id_for_label }}">
+                            Subject
+                        </label>
+
+                        {{ form.subject }}
+
+                        {% if form.subject.errors %}
+                            <div class="form-error">
+                                {{ form.subject.errors }}
+                            </div>
+                        {% endif %}
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="{{ form.message.id_for_label }}">
+                            Message
+                        </label>
+
+                        {{ form.message }}
+
+                        {% if form.message.errors %}
+                            <div class="form-error">
+                                {{ form.message.errors }}
+                            </div>
+                        {% endif %}
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary contact-submit"
+                    >
+                        Send Message
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+{% endblock %}

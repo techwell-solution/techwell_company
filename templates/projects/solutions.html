@@ -1,0 +1,303 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+Solutions | TechWell
+{% endblock %}
+
+
+{% block content %}
+
+<section class="solutions-hero section">
+
+    <!-- Animated Background -->
+    <div class="solutions-bg">
+        <div class="bg-slide bg-slide-1"></div>
+        <div class="bg-slide bg-slide-2"></div>
+        <div class="bg-slide bg-slide-3"></div>
+        <div class="bg-slide bg-slide-4"></div>
+    </div>
+
+    <!-- Dark Overlay -->
+    <div class="solutions-overlay"></div>
+
+    <div class="container">
+
+        <div class="solutions-hero-content">
+
+            <span class="section-tag">
+                OUR SOLUTIONS
+            </span>
+
+            <h1>
+                Technology Solutions
+                <span>Built Around Your Business.</span>
+            </h1>
+
+            <p>
+                We design practical, scalable technology solutions
+                that help businesses solve challenges, improve
+                efficiency, and grow with confidence.
+            </p>
+
+            <div class="sln-btn">
+
+                <a href="{% url 'contact' %}" class="btn btn-primary">
+                    Start a Project
+                </a>
+
+                <a href="{% url 'services' %}" class="btn btn-secondary">
+                    Explore Services
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="solutions-overview section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span class="section-tag">
+                WHAT WE SOLVE
+            </span>
+
+            <h2>
+                Technology That Works
+                <span>For Your Business.</span>
+            </h2>
+
+            <p>
+                Every business has different challenges. We combine
+                technology, creativity, and practical thinking to
+                develop solutions that fit your specific needs.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section
+    class="solutions-list section"
+    id="solutions"
+>
+
+    <div class="container">
+
+        <div class="solutions-grid">
+
+            {% for solution in solutions %}
+
+                <article class="solution-card">
+
+                    {% if solution.icon %}
+
+                        <div class="solution-icon">
+
+                            <i class="{{ solution.icon }}"></i>
+
+                        </div>
+
+                    {% endif %}
+
+
+                    <div class="solution-content">
+
+                        {% if solution.category %}
+
+                            <span class="solution-category">
+                                {{ solution.category }}
+                            </span>
+
+                        {% endif %}
+
+
+                        <h3>
+                            {{ solution.title }}
+                        </h3>
+
+
+                        <p class="solution-short-description">
+                            {{ solution.short_description }}
+                        </p>
+
+
+                        <p class="solution-description">
+                            {{ solution.description }}
+                        </p>
+
+
+                    </div>
+
+                </article>
+
+            {% empty %}
+
+                <div class="empty-state">
+
+                    <h3>
+                        Solutions Coming Soon
+                    </h3>
+
+                    <p>
+                        We're currently preparing our technology
+                        solutions. Check back soon.
+                    </p>
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="solutions-process section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span class="section-tag">
+                OUR APPROACH
+            </span>
+
+            <h2>
+                From Challenge
+                <span>To Solution.</span>
+            </h2>
+
+        </div>
+
+
+        <div class="process-grid">
+
+            <div class="process-card">
+
+                <span class="process-number">
+                    01
+                </span>
+
+                <h3>
+                    Understand
+                </h3>
+
+                <p>
+                    We understand your business, goals, challenges,
+                    and technology needs.
+                </p>
+
+            </div>
+
+
+            <div class="process-card">
+
+                <span class="process-number">
+                    02
+                </span>
+
+                <h3>
+                    Design
+                </h3>
+
+                <p>
+                    We develop a practical solution designed around
+                    your specific requirements.
+                </p>
+
+            </div>
+
+
+            <div class="process-card">
+
+                <span class="process-number">
+                    03
+                </span>
+
+                <h3>
+                    Build
+                </h3>
+
+                <p>
+                    We turn the solution into a reliable and
+                    user-friendly digital product.
+                </p>
+
+            </div>
+
+
+            <div class="process-card">
+
+                <span class="process-number">
+                    04
+                </span>
+
+                <h3>
+                    Support
+                </h3>
+
+                <p>
+                    We provide continued support as your business
+                    and technology needs evolve.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="solutions-cta section">
+
+    <div class="container">
+
+        <div class="solutions-cta-content">
+
+            <span class="section-tag">
+                HAVE A CHALLENGE?
+            </span>
+
+            <h2>
+                Let's Build the
+                <span>Right Solution.</span>
+            </h2>
+
+            <p>
+                Tell us what you're trying to achieve and we'll
+                help you find the right technology approach.
+            </p>
+            <div class="sln-btn">
+                <a href="{% url 'services' %}" class="btn btn-primary">
+                    Explore Services
+                </a>
+                <a href="{% url 'contact' %}" class="btn btn-secondary ">
+                    Talk to Us
+                </a>
+
+            </div>
+        
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

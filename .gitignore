@@ -1,0 +1,31 @@
+# Created by venv; see https://docs.python.org/3/library/venv.html
+# Virtual environment
+venv/
+.venv/
+
+# Environment variables and secrets
+.env
+.env.*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django
+db.sqlite3
+db.sqlite3-journal
+
+# Static files
+staticfiles/
+
+# Media files
+media/
+
+# IDE
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db

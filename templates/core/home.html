@@ -30,13 +30,13 @@
 
             <div class="buttons">
 
-                <a href=""
+                <a href="{% url 'booking' %}"
                    class="btn btn-primary">
                     Start a Project
                 </a>
 
                 <a href="{% url 'services' %}"
-                   class="btn btn-outline">
+                   class="btn btn-secondary">
                     Explore Services
                 </a>
 
@@ -361,7 +361,7 @@
                 {% if service.slug %}
 
                 
-                <a href=""
+                <a href="{% url 'service_detail' service.slug %}"
                    class="service-link">
 
                     Explore Service
@@ -535,8 +535,8 @@
                 </div>
 
 
-                <a href=""
-                   class="btn btn-primary why-button">
+                <a href="{% url 'about' %}"
+                   class="button">
 
                     Learn More About Us
                     <span>→</span>
@@ -695,8 +695,8 @@
         <div class="projects-footer">
 
             <a
-                href=""
-                class="btn btn-outline-dark"
+                href="{% url 'projects' %}"
+                class="button"
             >
                 View All Projects
                 <span>→</span>
@@ -869,7 +869,7 @@
                 Have a project in mind?
             </p>
 
-            <a href=""
+            <a href="{% url 'booking' %}"
                class="btn btn-primary">
 
                 Start a Project
@@ -1024,9 +1024,9 @@
             </p>
 
 
-            <div class="final-cta-actions">
+            <div class="buttons">
 
-                <a href=""
+                <a href="{% url 'booking' %}"
                    class="btn btn-primary">
 
                     Start a Project
@@ -1035,7 +1035,7 @@
                 </a>
 
                 <a href="{% url 'services' %}"
-                   class="final-cta-link">
+                   class="btn btn-secondary">
 
                     Explore Our Services
                     <span>↗</span>
