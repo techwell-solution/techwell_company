@@ -22,60 +22,66 @@
 
 
             <!-- Desktop Navigation -->
-            <div class="nav-menu">
+            <!-- Navigation -->
+                <div class="nav-menu" id="navMenu">
 
-                <a href="{% url 'home' %}"
-                   class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}">
-                    Home
+                    <a href="{% url 'home' %}"
+                    class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+                        Home
+                    </a>
+
+                    <a href="{% url 'about' %}"
+                    class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}">
+                        About
+                    </a>
+
+                    <a href="{% url 'services' %}"
+                    class="nav-link {% if request.resolver_match.url_name == 'services' %}active{% endif %}">
+                        Services
+                    </a>
+
+                    <a href="{% url 'solutions' %}"
+                    class="nav-link {% if request.resolver_match.url_name == 'solutions' %}active{% endif %}">
+                        Solutions
+                    </a>
+
+                    <a href="{% url 'projects' %}"
+                    class="nav-link {% if request.resolver_match.url_name == 'projects' %}active{% endif %}">
+                        Projects
+                    </a>
+
+                    <a href="{% url 'contact' %}"
+                    class="nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}">
+                        Contact
+                    </a>
+
+                    <!-- Mobile CTA -->
+                    <a href="{% url 'booking' %}" class="mobile-nav-cta">
+                        Start a Project
+                    </a>
+
+                </div>
+
+
+                <!-- Desktop CTA -->
+                <a href="{% url 'booking' %}" class="nav-cta">
+                    Start a Project
                 </a>
 
-                <a href="{% url 'about' %}"
-                   class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}">
-                    About
-                </a>
 
-                <a href="{% url 'services' %}"
-                   class="nav-link {% if request.resolver_match.url_name == 'services' %}active{% endif %}">
-                    Services
-                </a>
+                <!-- Mobile Toggle -->
+                <button class="menu-toggle"
+                        id="menuToggle"
+                        type="button"
+                        aria-label="Open navigation"
+                        aria-expanded="false"
+                        aria-controls="navMenu">
 
-                <a href="{% url 'solutions' %}"
-                   class="nav-link {% if request.resolver_match.url_name == 'solutions' %}active{% endif %}">
-                    Solutions
-                </a>
+                    <span></span>
+                    <span></span>
+                    <span></span>
 
-                <a href="{% url 'projects' %}"
-                   class="nav-link {% if request.resolver_match.url_name == 'projects' %}active{% endif %}">
-                    Projects
-                </a>
-
-                <a href="{% url 'contact' %}"
-                   class="nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}">
-                    Contact
-                </a>
-
-            </div>
-
-
-            <!-- CTA -->
-            <a href="{% url 'booking' %}" class="nav-cta">
-                Start a Project
-            </a>
-
-
-            <!-- Mobile Toggle -->
-            <button class="menu-toggle"
-                    type="button"
-                    aria-label="Open navigation"
-                    aria-expanded="false">
-
-                <span></span>
-                <span></span>
-                <span></span>
-
-            </button>
-
-        </div>
+                </button>
 
     </nav>
 

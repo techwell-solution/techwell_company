@@ -668,3 +668,318 @@
     }
 
 }
+/* =====================================================
+   RESPONSIVE DESIGN
+   900px
+===================================================== */
+
+@media (max-width: 900px) {
+
+    /* =========================
+       SERVICES
+    ========================== */
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+
+    .service-card-content {
+        padding: 20px;
+    }
+
+    .service-card-content h3 {
+        font-size: 1.15rem;
+    }
+
+    .service-card-content p {
+        font-size: 0.95rem;
+    }
+
+
+    /* =========================
+       WHY TECHWELL
+    ========================== */
+
+    .why-techwell-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .why-techwell-content {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    .why-techwell-content .button {
+        margin-top: 10px;
+    }
+
+    .why-techwell-features {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+
+    .why-feature {
+        padding: 20px;
+    }
+
+}
+
+
+/* =====================================================
+   RESPONSIVE DESIGN
+   600px
+===================================================== */
+
+@media (max-width: 600px) {
+
+    /* =========================
+       SECTION HEADING
+    ========================== */
+
+    .section-heading h2 {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+
+    .section-heading p {
+        font-size: 0.95rem;
+    }
+
+
+    /* =========================
+       SERVICES
+    ========================== */
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .service-card {
+        width: 100%;
+    }
+
+    .service-card-image {
+        height: 220px;
+    }
+
+    .service-card-content {
+        padding: 20px;
+    }
+
+    .service-card-content h3 {
+        font-size: 1.2rem;
+    }
+
+
+    /* =========================
+       PAGINATION
+    ========================== */
+
+    .pagination {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .pagination-numbers {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px;
+    }
+
+    .pagination-link {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+
+
+    /* =========================
+       WHY TECHWELL
+    ========================== */
+
+    .why-techwell-grid {
+        gap: 30px;
+    }
+
+    .why-techwell-content h2 {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+
+    .why-techwell-content p {
+        font-size: 0.95rem;
+    }
+
+    .why-techwell-features {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .why-feature {
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+        padding: 18px;
+    }
+
+    .why-feature-icon {
+        flex-shrink: 0;
+    }
+
+    .why-feature h3 {
+        font-size: 1.05rem;
+    }
+
+    .why-feature p {
+        font-size: 0.9rem;
+    }
+
+}
+
+
+/* =====================================================
+   RESPONSIVE DESIGN
+   480px
+===================================================== */
+
+@media (max-width: 480px) {
+
+    /* =========================
+       CONTAINER
+    ========================== */
+
+    .container {
+        width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+
+    /* =========================
+       SECTION
+    ========================== */
+
+    .section {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .section-heading {
+        margin-bottom: 30px;
+    }
+
+    .section-heading h2 {
+        font-size: 1.7rem;
+    }
+
+    .section-heading p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    .section-tag {
+        font-size: 0.75rem;
+    }
+
+
+    /* =========================
+       SERVICES
+    ========================== */
+
+    .services-grid {
+        gap: 18px;
+    }
+
+    .service-card {
+        border-radius: 10px;
+    }
+
+    .service-card-image {
+        height: 190px;
+    }
+
+    .service-card-content {
+        padding: 17px;
+    }
+
+    .service-card-content h3 {
+        font-size: 1.1rem;
+        margin-bottom: 8px;
+    }
+
+    .service-card-content p {
+        font-size: 0.88rem;
+        line-height: 1.6;
+    }
+
+    .service-link {
+        font-size: 0.9rem;
+    }
+
+
+    /* =========================
+       PAGINATION
+    ========================== */
+
+    .pagination {
+        gap: 8px;
+    }
+
+    .pagination-link {
+        padding: 7px 10px;
+        font-size: 0.82rem;
+    }
+
+    .pagination-numbers {
+        gap: 4px;
+    }
+
+
+    /* =========================
+       WHY TECHWELL
+    ========================== */
+
+    .why-techwell-content h2 {
+        font-size: 1.7rem;
+    }
+
+    .why-techwell-content p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    .why-techwell-features {
+        gap: 15px;
+    }
+
+    .why-feature {
+        padding: 15px;
+        gap: 12px;
+    }
+
+    .why-feature-icon {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .why-feature h3 {
+        font-size: 1rem;
+        margin-bottom: 5px;
+    }
+
+    .why-feature p {
+        font-size: 0.85rem;
+        line-height: 1.5;
+    }
+
+}
